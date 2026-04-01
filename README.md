@@ -28,10 +28,10 @@
 > 2번의 '제안서 형식'을 정의할 때, 수동으로 입력받는 대신 `templates` 폴더 내에 있는 특정 제안서 한글 파일로부터 그 계층/형식 구조를 자동으로 추출해오는 방식을 택해야 할지에 대한 고민이 존재합니다.
 
 ### 3. 마크다운 계층 분석 및 형식 맞춤 (Analyzer)
-기존에 사용하던 `claude_md_converter.html`에서 나아가, 앞으로는 `claude_md_analyzer`의 구조로 진화해야 합니다.
+메인 통합 도구(`proposal_studio.html`) 내에서 Analyzer 로직을 통해 포맷팅을 처리합니다.
 - LLM이 작성해 준 구조화된 마크다운을 보고, 텍스트가 얼만큼의 계층(depth)을 갖는지 모듈화/판단합니다.
 - 판단된 depth에 맞춰 2번에서 정의한 '제안서의 꼭 필요한 형식(들여쓰기, 기호 등)'을 적용해 줍니다.
-- **향후 과제:** 현재 이 analyzer 부분이 규칙 기반(Rule-base)으로 되어 있지만, 문서의 맥락과 계층을 파악하는 데에는 한계가 있으므로 **이 부분 역시 LLM이 개입하여 판단**하도록 고도화할 필요가 있습니다.
+- **핵심 과제:** 문서의 맥락과 계층을 정밀하게 파악하기 위해 단순 규칙(Rule-base)을 넘어 **이 부분 역시 LLM이 개입하여 판단**하도록 고도화할 필요가 있습니다.
 
 ### 4. 최종 출력 (HWP 복붙용 Plain Text & 표 분리 생성)
 문서 조립이 완성되면 HTML 상에서 Plain Text로 결과를 제공합니다.
@@ -47,7 +47,5 @@ proposal-html-hwpx/
 ├── references/          참고자료 (PDF, PPTX, XLSX, DOCX, HWP/HWPX 등)
 ├── templates/           형식 추출용 템플릿 파일 모음 (HWPX 등)
 ├── outputs/             최종 결과물 및 생성된 표 Word 파일 저장 포지션
-├── proposal_studio.html 메인 통합 환경 도구
-├── claude_md_converter.html  (기존 방식 변환기)
-└── claude_md_analyzer.html   (계층 및 포맷 적용 분석기 구조)
+└── proposal_studio.html 메인 통합 환경 도구
 ```
