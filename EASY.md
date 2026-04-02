@@ -1,6 +1,7 @@
 1. references에 참고할 파일들 넣기 
 (PDF, PPTX, XLSX, DOCX, HWPX)
 hwp는 안됨....
+hwpx 넣는거보다는 pdf로 만들어서 넣는게 나을지도?
 
 2. templates에 한글 파일 형식 넣기 (hwpx)
 3. 제안서 만들어줘 -> 마크다운 형식으로 뱉음, 표는 따로 outputs에 word 표로 나옴 
